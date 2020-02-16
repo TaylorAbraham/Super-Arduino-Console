@@ -5,7 +5,6 @@
 
 PatPet::PatPet(Adafruit_PCD8544& d) {
   display = &d;
-  Serial.write("Starting PatPet!\n");
   while (true) {
     draw();
   }

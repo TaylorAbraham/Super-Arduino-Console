@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "InputManager.h"
 
 #define BTN_A 0

@@ -1,6 +1,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 #include "InputManager.h"
+#include "PatPet.h"
 
 #define LCD_BL 7
 
@@ -26,7 +27,7 @@ void loop() {
   drawMenu();
   digitalWrite(LCD_BL, HIGH); // Turn backlight on
   if (inMgr.btnAPressed()) {
-    count++;
+    PatPet game(display);
   }
   if (inMgr.btnBPressed()) {
     count /= 2;
@@ -37,12 +38,10 @@ void drawMenu() {
   display.setTextSize(1);
   display.clearDisplay();
   display.setTextColor(BLACK, WHITE);
-  display.setCursor(15, 0);
-  display.print("MAIN MENU");
+  display.setCursor(0, 0);
+  display.print("SELECT A GAME");
   display.drawFastHLine(0,10,83,BLACK);
   display.setCursor(0, 15);
-  display.print(count);
-  display.setCursor(0, 35);
-  display.print(">Reset");
+  display.print(">PatPet");
   display.display();
 }
